@@ -1,8 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
 
 body {
-
+    font-family: "Oxygen", sans-serif;
     margin: 0;
+}
+
+.code {
+    white-space: pre-wrap;
+    font-family: "Ubuntu Mono", monospace;
+    background-color: #b8b8b8;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .banner {
@@ -10,7 +21,44 @@ body {
     height: 10px;
 }
 
-.text {
-    margin: 5px;
-    font-family: "Roboto", sans-serif;
+.sidenav {
+    height: 100%;
+    width: 150px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav p {
+    text-align: center;
+    font-size: 16px;
+    color: #ffffff;
+    font-family: "Quantico", sans-serif;
+}
+
+.page {
+    margin-left: 160px;
+    margin-right: 10px;
+}
+
+.title {
+    margin-top: 2px; 
+    font-size: 35px;
+    font-weight: bold;
 }

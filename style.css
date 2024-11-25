@@ -8,12 +8,23 @@ body {
     margin: 0;
 }
 
+hr {
+    border: 1px solid darkgrey;
+}
+
 .code {
-    white-space: pre-wrap;
     font-family: "Ubuntu Mono", monospace;
-    background-color: #b8b8b8;
+    background-color: lightgrey;
     border-radius: 10px;
     padding: 10px;
+}
+
+.code-title {
+    font-weight: bold;
+}
+
+.code-content {
+    white-space: pre-wrap;
 }
 
 .banner {
@@ -57,8 +68,12 @@ body {
     margin-right: 10px;
 }
 
-.title {
+.page-title {
     margin-top: 2px; 
     font-size: 35px;
     font-weight: bold;
+}
+
+.page-subtitle {
+    color: grey;
 }

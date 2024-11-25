@@ -10,6 +10,7 @@ sidenav.innerHTML = `
     <div class="sidenav">
         <p>ckury.github.io</p>
         <a href="index.html">Hello World</a>
+        <a href="about.html">About</a>
     </div>
 `;
 

@@ -1,3 +1,5 @@
+/* FW-version: 1.0 */
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
@@ -47,7 +49,7 @@ hr {
 .sideoption{
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 14px;
     color: #818181;
     display: block;
 }
@@ -57,10 +59,13 @@ hr {
 }
 
 .sidetitle {
+    padding: 10px;
     text-align: center;
+    text-decoration: none;
     font-size: 16px;
     color: #ffffff;
     font-family: "Quantico", sans-serif;
+    display: block;
 }
 
 .page {

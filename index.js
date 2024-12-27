@@ -11,8 +11,8 @@ const sidenav = document.createElement('template');
 sidenav.innerHTML = `
     <div class="sidenav">
         <a href="/" class="sidetitle">CKURY GitHub</a>
-        <a href="/hello_world.html" class="sideoption">Hello World</a>
-        <a href="/about.html" class="sideoption">About</a>
+        <a href="/pages/hello_world.html" class="sideoption">Hello World</a>
+        <a href="/pages/about.html" class="sideoption">About</a>
     </div>
 `;
 

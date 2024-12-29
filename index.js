@@ -1,33 +1,45 @@
 // FW-version: 1.0
 
-const banner = document.createElement('template');
-banner.innerHTML = `
-    <div class="banner"></div>
-`;
+addTemplateToBody('/templates/banner.html')
+addTemplateToBody('/templates/sidenav.html')
+addScriptSrc('/templates/sidenav.js')
 
-document.body.prepend(banner.content);
 
-const sidenav = document.createElement('template');
-sidenav.innerHTML = `
-    <div class="sidenav">
-        <a href="/pages/hello_world.html">Hello World</a>
-        <a href="/pages/about.html">About</a>
-        <button class="dropdown-btn" onclick="toggleDropdown(this)">STM32</button>
-        <div class="dropdown-container">
-            <a href="#">Product 1</a>
-            <a href="#">Product 2</a>
-            <a href="#">Product 3</a>
-        </div>
-    </div>
-`;
+function addTemplateToBody(url) {
+    const htmlTemplate = document.createElement('div');
 
-document.body.prepend(sidenav.content);
+    getContent(url, (err, data) => {
+        if (err) {
+            console.error(err);
+        } else {
+            htmlTemplate.innerHTML = data;
+            document.body.prepend(htmlTemplate.firstChild)
+        }
+    })
 
-function toggleDropdown(btn) {
-    var dropdownContent = btn.nextElementSibling; 
-    if (dropdownContent.style.display === "block") {
-      dropdownContent.style.display = "none";
+}
+
+function addScriptSrc(url) {
+    const script = document.createElement("script")
+    script.src = url
+    document.head.appendChild(script)
+}
+
+function getContent(url, callback) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      callback(null, xhr.responseText); 
     } else {
-      dropdownContent.style.display = "block";
+      callback(new Error(`Request failed.  Returned status of ${xhr.status}`));
     }
-  }
+  };
+
+  xhr.onerror = function() {
+    callback(new Error('Request failed due to Network'));
+  };
+
+  xhr.send();
+}

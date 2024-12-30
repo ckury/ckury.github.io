@@ -11,8 +11,8 @@
 }
 
 @font-face {
-    font-family: 'Ubuntu Mono';
-    src: url(/fonts/Ubuntu_Mono/UbuntuMono-Regular.ttf);
+    font-family: 'Roboto Mono';
+    src: url(/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf);
 }
 
 @font-face {
@@ -70,10 +70,11 @@ hr {
 }
 
 .code {
-    font-family: "Ubuntu Mono", monospace;
+    font-family: "Roboto Mono", monospace;
     background-color: lightgrey;
     border-radius: 10px;
     padding: 10px;
+    font-size: 14px;
 }
 
 .code-title {

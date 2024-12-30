@@ -101,6 +101,7 @@ hr {
     display: block;
 }
 
+.dropdown-btn:hover,
 .sidenav a:hover {
     color: #f1f1f1;
 }
@@ -185,4 +186,14 @@ hr {
 }
 .pagenav-h6 {
     padding-left: 56px !important;
+}
+
+.pagenav-title:hover, 
+.pagenav-h1:hover, 
+.pagenav-h2:hover, 
+.pagenav-h3:hover, 
+.pagenav-h4:hover, 
+.pagenav-h5:hover, 
+.pagenav-h6:hover {
+  color: #f1f1f1;
 }

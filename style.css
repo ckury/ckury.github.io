@@ -29,6 +29,7 @@ body {
 xmp {
     font-family: inherit;
     font-size: inherit;
+    white-space: pre-wrap;
 }
 
 .custom-scrollbar::-webkit-scrollbar {

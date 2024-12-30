@@ -1,13 +1,10 @@
 // FW-version: 1.0
 addTemplateToBody('/templates/sidenav.html', () => {
     addIdsToHeaders(document.getElementsByClassName("content")[0])
-    populatePageNav(document.getElementsByClassName("content")[0], document.getElementsByClassName("pagenav")[0])
+    populatePageNav(document.getElementsByClassName("page")[0], document.getElementsByClassName("pagenav")[0])
 })
 
 addScriptSrc('/templates/sidenav.js')
-
-
-
 
 function addTemplateToBody(url, callback) {
     const htmlTemplate = document.createElement('div');
@@ -74,16 +71,28 @@ function addIdsToHeaders(div) {
     });
 }
 
-function populatePageNav(content_div, pagenav_div) {
-    if (!content_div || !pagenav_div) {
+function populatePageNav(page_div, pagenav_div) {
+    if (!page_div || !pagenav_div) {
       console.error("populatePageNav: One or both elements not found!");
       return; 
     }
+
+    const title = page_div.querySelector('.page-title');
+
+    if (title) {
+        const element = document.createElement('a');
+        element.href = "#";
+        element.textContent = title.innerHTML;
+        element.classList.add("pagenav-title")
+        pagenav_div.appendChild(element);
+    } else {
+        console.error('populatePageNav: No page_title found in page_div');
+    }
   
-    const headers = content_div.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    const headers = page_div.querySelectorAll('h1, h2, h3, h4, h5, h6');
   
     if (headers.length === 0) {
-      console.log("populatePageNav: No headers found in content_div");
+      console.log("populatePageNav: No headers found in page_div");
       return; 
     }
   
@@ -94,4 +103,4 @@ function populatePageNav(content_div, pagenav_div) {
         element.classList.add("pagenav-" + header.tagName.toLowerCase())
         pagenav_div.appendChild(element);
     });
-  }
+}

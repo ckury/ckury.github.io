@@ -144,6 +144,8 @@ hr {
   border: none;
   background: none;
   cursor: pointer;
+  min-width: 100%;
+  text-align: left;
 }
 
 .dropdown-container {

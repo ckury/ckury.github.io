@@ -97,7 +97,7 @@ hr {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 16px;
-    color: #818181;
+    color: #bbbbbb;
     display: block;
 }
 
@@ -124,13 +124,13 @@ hr {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 16px;
-    color: #818181;
+    color: #bbbbbb;
     display: block;
 }
 
 .dropdown-btn {
   background-color: inherit; /* Inherit color from sidenav */
-  color: #818181;
+  color: #bbbbbb;
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 16px;

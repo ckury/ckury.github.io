@@ -20,6 +20,11 @@
     src: url(/fonts/Audiowide/Audiowide-Regular.ttf);
 }
 
+::selection {
+    background-color: #777777;
+    color: white;
+}
+
 body {
     font-family: "Oxygen", sans-serif;
     margin: 0;
@@ -212,10 +217,10 @@ hr {
     color: white;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 12px;
     border-radius: 5px;
     cursor: pointer;
+    float: right;
   }
   
 .code-title button:hover {

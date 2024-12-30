@@ -5,6 +5,8 @@ addTemplateToBody('/templates/sidenav.html', () => {
 })
 
 addScriptSrc('/templates/sidenav.js')
+applyCodeButtons()
+
 
 function addTemplateToBody(url, callback) {
     const htmlTemplate = document.createElement('div');
@@ -122,4 +124,14 @@ async function selectCode(object) {
     console.warn("Could not select text.");
     return;
   }
+}
+
+function applyCodeButtons() {
+  document.querySelectorAll('.code-title').forEach(code_title => {
+    const element = document.createElement('button');
+    element.textContent = 'Select Code';
+    element.setAttribute('onclick', 'selectCode(this)');
+
+    code_title.appendChild(element);
+  })
 }

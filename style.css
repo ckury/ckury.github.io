@@ -205,3 +205,19 @@ hr {
 .pagenav-h6:hover {
   color: #f1f1f1;
 }
+
+.code-title button {
+    background-color: #337235; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+.code-title button:hover {
+    background-color: #47a14a; /* Darker Green on hover */
+}

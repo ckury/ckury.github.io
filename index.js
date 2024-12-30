@@ -104,3 +104,22 @@ function populatePageNav(page_div, pagenav_div) {
         pagenav_div.appendChild(element);
     });
 }
+
+async function selectCode(object) {
+  const code = object.closest(".code").getElementsByClassName('code-content')[0].firstChild;
+
+  if (document.body.createTextRange) {
+    const range = docuemnt.body.createTextRange();
+    range.moveToElementText(code);
+    range.select
+  } else if (window.getSelection) {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(code);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  } else {
+    console.warn("Could not select text.");
+    return;
+  }
+}

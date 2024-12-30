@@ -15,9 +15,43 @@
     src: url(/fonts/Ubuntu_Mono/UbuntuMono-Regular.ttf);
 }
 
+@font-face {
+    font-family: 'Audiowide';
+    src: url(/fonts/Audiowide/Audiowide-Regular.ttf);
+}
+
 body {
     font-family: "Oxygen", sans-serif;
     margin: 0;
+    background-color: black;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #181818; /* Darker track color */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #555; /* Darker thumb color */
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #777; /* Darker hover color */
+}
+
+.custom-scrollbar::-webkit-scrollbar-button {
+    height: 8px;
+    width: 16px; 
+    background-color: #555;
+    border-radius: 4px;
+  }
+
+.custom-scrollbar::-webkit-scrollbar-button:hover {
+    background-color: #777;
 }
 
 hr {
@@ -39,34 +73,58 @@ hr {
     white-space: pre-wrap;
 }
 
-.banner {
-    background-color: green;
-    height: 10px;
-}
-
-.sidenav {
+.left-rail {
     height: 100%;
-    width: 150px;
+    width: 200px;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.sidenav {
+    height: 50%;
+    background-color: #252525;
     overflow-x: hidden;
     overflow-wrap: break-word;
-    padding-top: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 16px;
-  color: #818181;
-  display: block;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #818181;
+    display: block;
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+    color: #f1f1f1;
+}
+
+.sidetitle {
+    font-family: "Audiowide";
+    font-weight: bold;
+    font-size: 20px !important;
+}
+
+.pagenav {
+    height: -webkit-calc(50% - 10px);
+    background-color: #252525;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    border-radius: 10px;
+}
+
+.pagenav * {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #818181;
+    display: block;
 }
 
 .dropdown-btn {
@@ -88,16 +146,43 @@ hr {
 }
 
 .page {
-    margin-left: 160px;
-    margin-right: 10px;
+    margin: 10px;
+    margin-left: 200px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .page-title {
-    margin-top: 2px; 
     font-size: 35px;
     font-weight: bold;
+    margin-bottom: 6px;
 }
 
 .page-subtitle {
     color: grey;
+}
+
+.pagenav-title {
+    font-family: "Audiowide";
+    font-weight: bold;
+    font-size: 18px !important;
+}
+.pagenav-h1 {
+    padding-left: 16px !important;
+}
+.pagenav-h2 {
+    padding-left: 24px !important;
+}
+.pagenav-h3 {
+    padding-left: 32px !important;
+}
+.pagenav-h4 {
+    padding-left: 40px !important;
+}
+.pagenav-h5 {
+    padding-left: 48px !important;
+}
+.pagenav-h6 {
+    padding-left: 56px !important;
 }

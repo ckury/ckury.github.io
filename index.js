@@ -1,11 +1,15 @@
 // FW-version: 1.0
+addTemplateToBody('/templates/sidenav.html', () => {
+    addIdsToHeaders(document.getElementsByClassName("content")[0])
+    populatePageNav(document.getElementsByClassName("content")[0], document.getElementsByClassName("pagenav")[0])
+})
 
-addTemplateToBody('/templates/banner.html')
-addTemplateToBody('/templates/sidenav.html')
 addScriptSrc('/templates/sidenav.js')
 
 
-function addTemplateToBody(url) {
+
+
+function addTemplateToBody(url, callback) {
     const htmlTemplate = document.createElement('div');
 
     getContent(url, (err, data) => {
@@ -14,6 +18,8 @@ function addTemplateToBody(url) {
         } else {
             htmlTemplate.innerHTML = data;
             document.body.prepend(htmlTemplate.firstChild)
+
+            if (callback) {callback();}
         }
     })
 
@@ -43,3 +49,49 @@ function getContent(url, callback) {
 
   xhr.send();
 }
+
+// Document Modification
+
+function addIdsToHeaders(div) {
+    const headers = div.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    const usedIds = {};
+  
+    headers.forEach(header => {
+      let id = header.textContent.trim().replace(/\s+/g, '-'); // Replace spaces with hyphens along with removing any beginning or trailing whitespace
+      id = encodeURIComponent(id); // URL encode the id for URL compliance
+      id = id.substring(0, 50); // Truncate initial id to 50 characters
+  
+      if (usedIds[id]) { // Check for duplicate ids and increment a number if already existing
+        let count = 1;
+        while (usedIds[id + '_' + count]) {
+          count++;
+        }
+        id += '_' + count;
+      }
+  
+      header.id = id; // Add the id attribute
+      usedIds[id] = true; // Mark the id as used
+    });
+}
+
+function populatePageNav(content_div, pagenav_div) {
+    if (!content_div || !pagenav_div) {
+      console.error("populatePageNav: One or both elements not found!");
+      return; 
+    }
+  
+    const headers = content_div.querySelectorAll('h1, h2, h3, h4, h5, h6');
+  
+    if (headers.length === 0) {
+      console.log("populatePageNav: No headers found in content_div");
+      return; 
+    }
+  
+    headers.forEach(header => {
+        const element = document.createElement('a');
+        element.href = "#" + header.id;
+        element.textContent = header.textContent;
+        element.classList.add("pagenav-" + header.tagName.toLowerCase())
+        pagenav_div.appendChild(element);
+    });
+  }

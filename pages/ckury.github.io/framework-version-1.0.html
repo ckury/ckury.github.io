@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- FW-version: 1.0 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framework Version 1.0 | ckury.github.io</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <script src="/index.js" type="text/javascript" defer></script>
+</head>
+
+<body class="custom-scrollbar">
+    <div class="page">
+        <div class="page-title">
+            Framework Version 1.0
+        </div>
+        <div class="page-subtitle">
+            2024-12-29
+        </div>
+        <hr>
+        <div class="content">
+            <p>This page serves as documentation for the basic framework used for this website. This page uses basic html and js files to create a simple static webpage to be hosted on github pages. Jenkyl and other static html website frameworks can be used.</p>
+            <h2>File Structure</h2>
+            <p>The following repo structure is as follows:</p>
+            <dl>
+                <dt>/.github/</dt>
+                <dd>This directory contains the files needed for the github workflow needed to deploy the page onto github pages.</dd>
+                <dt>/fonts/</dt>
+                <dd>This directory contains the fonts needed for the pages. These are from Google Fonts.</dd>
+                <dt>/pages/</dt>
+                <dd>This directory contains all of the html pages.</dd>
+                <dt>/templates/</dt>
+                <dd>This directory contains the partial html templates and their associated javascript files that are requested by other pages for reusability. This is where the left sidenav is stored along with the logic needed.</dd>
+                <dt>/index.html</dt>
+                <dd>This is the main home page that gets served when you navigate to <a href="https://ckury.github.io">ckury.github.io</a>.</dd>
+                <dt>/index.js</dt>
+                <dd>This is the main javascript file used by all pages and contains the scripting needed to support the left sidenav and pagenav components.</dd>
+                <dt>/style.css</dt>
+                <dd>This file contains the css styling used for the entire site.</dd>
+            </dl>
+            <h3>/index.js</h3>
+            <p>This is the main javascript file. It contains functions needed to load the template html files along with their associated scripts. This also automatically assembles the pagenav part of the page used to quickly jup between sections.</p>
+            <h4>pagenav</h4>
+            <p>The pagenav functions allow for the automatic creation of a "Table of Contents" for the page based on html header tags. The function "addIdsToHeaders()" automatically parses the page for any header tags (h1-6) and automatically assigns a unique id needed to support linking to that section. The ids follow the following rules:</p>
+            <ol>
+                <li>The text content of the html tag is used as the first part of the id. It is automatically truncated into 50 characters max.</li>
+                <li>The text is then parsed for any spaces and they are replaced with hyphes "-". They are then encoded into URL encoding to prevent unsafe characters from being used</li>
+                <li>The preliminary id is then checked with other existing ids and if a conflic is detected, an incremented number is amended at the end after an underscore "_".</li>
+            </ol>
+            <p>The page is then parsed again to assemble all of the tags and their ids to be put under the pagenav div as links. They are indented based on their header number for easy reading.</p>
+            <p>Note: due to the static nature of the pages, this is generated each time the page is loaded locally on the client. The ids remain consistent across page loads though and can be statically linked to.</p>
+            <h3>HTML format</h3>
+            <p>The html files have to follow a consistent structure due to the static nature. The following template can be used:</p>
+            <div class="code">
+                <div class="code-title">Template html</div>
+                <hr>
+                <div class="code-content"><xmp><!DOCTYPE html>
+<html lang="en">
+                  
+<!-- FW-version: 1.0 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{ PAGE TITLE HERE }} | ckury.github.io</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <script src="/index.js" type="text/javascript" defer></script>
+</head>
+
+<body class="custom-scrollbar">
+    <div class="page">
+        <div class="page-title">
+            {{ PAGE TITLE HERE }}
+        </div>
+        <div class="page-subtitle">
+            {{ DATE HERE IN THIS FORMAT 2024-12-27 }}
+        </div>
+        <hr>
+        <div class="content">
+            {{ PAGE CONTENT HERE }}
+        </div>
+    </div>
+</body></xmp></div>
+            
+        </div>
+        <p>Make sure to change the parts that are encloded in double squigly braces</p>
+    </div>
+</body>
